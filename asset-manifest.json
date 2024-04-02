@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/react-polifasad/static/css/main.e6c13ad2.css",
+    "main.js": "/react-polifasad/static/js/main.1912222a.js",
+    "static/js/453.32858671.chunk.js": "/react-polifasad/static/js/453.32858671.chunk.js",
+    "index.html": "/react-polifasad/index.html",
+    "main.e6c13ad2.css.map": "/react-polifasad/static/css/main.e6c13ad2.css.map",
+    "main.1912222a.js.map": "/react-polifasad/static/js/main.1912222a.js.map",
+    "453.32858671.chunk.js.map": "/react-polifasad/static/js/453.32858671.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.1912222a.js"
+  ]
+}
