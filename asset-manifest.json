@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react-polifasad1/static/css/main.e6c13ad2.css",
-    "main.js": "/react-polifasad1/static/js/main.603f807d.js",
-    "static/js/453.2db29879.chunk.js": "/react-polifasad1/static/js/453.2db29879.chunk.js",
-    "index.html": "/react-polifasad1/index.html",
-    "main.e6c13ad2.css.map": "/react-polifasad1/static/css/main.e6c13ad2.css.map",
-    "main.603f807d.js.map": "/react-polifasad1/static/js/main.603f807d.js.map",
-    "453.2db29879.chunk.js.map": "/react-polifasad1/static/js/453.2db29879.chunk.js.map"
+    "main.css": "/static/css/main.e6c13ad2.css",
+    "main.js": "/static/js/main.b3836308.js",
+    "static/js/453.32858671.chunk.js": "/static/js/453.32858671.chunk.js",
+    "index.html": "/index.html",
+    "main.e6c13ad2.css.map": "/static/css/main.e6c13ad2.css.map",
+    "main.b3836308.js.map": "/static/js/main.b3836308.js.map",
+    "453.32858671.chunk.js.map": "/static/js/453.32858671.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.603f807d.js"
+    "static/js/main.b3836308.js"
   ]
 }
