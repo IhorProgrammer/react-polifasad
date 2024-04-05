@@ -1,0 +1,38 @@
+/* ------------------- Footer ------------------- */
+.footer{
+    background-color: var(--first-color);
+    color: white;
+    padding: 1px;
+    margin: 0;
+    border-top: 5px var(--red-color) solid;
+}
+.container{
+    background-color: var(--first-color);
+    margin-top: 40px;
+}
+.footer a {
+    text-decoration: none;
+    color: white;
+
+}
+iframe{
+    width: 100%;
+    height: 200px;
+}
+.info{
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.icon {
+    height: 20px;
+    margin: 0 20px;
+}
+.phone-list li{
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+.footer .social-container{
+    height: auto;
+}

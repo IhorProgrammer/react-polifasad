@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ColorPicker.css">
+</head>
+<body>
+
+    <!-- Дефолт вид  -->
+    <div class="Okm-colorPicker" style="margin: 0 auto;">
+        <div id="colorPicker"></div>
+        <div id="colorPickerViewColor" class="viewColor anm-pulse" >
+            <div id="colorPickerTarget" style="display: flex; justify-content: center; align-items: center;">
+                <h1 style="color: white; font-weight: bolder;">OK</h1>
+            </div>
+        </div>
+    </div>
+    <div id="viewColorFullScreen">
+        <div id="viewColorFullScreenBgn"></div>
+        <div style="text-align: center; font-size: xx-large; font-weight: bold; margin: 30px;">Просмотреть цвет</div>
+    </div>
+    <script src="ColorPicker.js"></script>
+
+
+    <!-- Скрипт подключения -->
+    <script>
+        // Создание colorPicker
+        const okm = new ColorPicker(document.getElementById("colorPicker"), document.getElementById("colorPickerViewColor"));
+        const colorPickerColors = [
+            ["9C709E","9AA63A","6580AD","7379A9","E9B164","E19A62","C7A25E","9B7537","C77F59","C07855","956841","816142","4A4438"],
+            ["B081AB","B1C93D","7292BB","818DB5","EAB86F","EEA76F","D4AE6D","B28742","CE8D65","D38A57","A5764C","937150","595144"],
+            ["C092B7","BFD99C","80A3C3","93A0C2","F7CB84","F4B784","EBBF7E","D0A769","E0A178","D88E68","B68759","A4805E","847264"],
+        ]
+        okm.createCircles(100, colorPickerColors);
+        // Просмотр цвета
+        viewColorFullScreen(okm, document.getElementById("viewColorFullScreen"), document.getElementById("viewColorFullScreenBgn"));
+        document.getElementById("colorPickerTarget").addEventListener("click", () => {
+            alert("Click " + okm.selectedColor);
+        });
+    </script>
+</body>
+</html>

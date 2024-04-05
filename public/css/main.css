@@ -1,0 +1,178 @@
+:root{
+    --first-color: #2d2d2d;
+    --second-color: #454545;
+    --red-color: #ae2a27;
+}
+*{
+    font-family: "Exo 2", sans-serif;
+    text-rendering: optimizeLegibility;
+}
+p{
+    font-weight: 300;
+}
+h1,h2,h3,h4,h5,h6{
+    margin: 0;
+}
+.inherit {
+    height: inherit;
+}
+
+/* Apple-menu */
+.logo-text{
+    margin-left: 10px;
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: white;
+}
+
+/* Animation */
+.anm-pulse{
+    animation-name: elementor-animation-pulse-shrink;
+    animation-duration: 0.7s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-play-state: paused;
+}
+.anm-pulse:hover{
+    animation-play-state: running;
+}
+
+
+/* ------------------- Bgn overlay ------------------- */
+.bgn-overlay{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.bgn-img-overlay {
+    background-color: #111111;;
+}
+.react-parallax {
+    margin: 0 auto;
+    width: 650px;
+    height: 100%;
+}
+.parallax-container .parallax img {
+    bottom: -20%;
+}
+
+.bgn-overlay .icon{
+    width: 35%;
+}
+.icon-bgn {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.bgn-img-overlay::before{
+    position: absolute !important;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.50);
+    z-index: 1;
+}
+.bgn-overlay-context{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--red-color);
+    color: white;
+    cursor: pointer;
+}
+.bgn-overlay-context .btn-outline1, .bgn-overlay-context .btn-outline2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    border: 3px solid var(--red-color);
+    z-index: 1;
+    border-radius: 10px;
+} 
+.bgn-overlay-context{
+    animation-name: elementor-animation-pulse-shrink;
+    animation-duration: 0.7s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    border-radius: 10px;
+}
+.bgn-overlay-context .btn-outline1{
+    animation: v-fade-before 2s infinite ease-in-out;
+}
+.bgn-overlay-context .btn-outline2{
+    animation: v-fade-after 2s infinite ease-in-out;
+}
+
+
+/*------------------- Card -------------------*/
+
+.services{
+    color: white;
+    margin: 0;
+}
+.services .card{
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    border-radius: 0;
+}
+.card-icon img, .card-icon{
+    height: inherit;
+    display: block;
+}
+.services .card:nth-child(even){
+    background-color: var(--first-color);
+}
+.services .card:nth-child(odd){
+    background-color: var(--second-color);
+}
+.services-full{
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+
+}
+.services-content{
+    width: 80%;
+    margin: 0 auto;
+}
+.service-image-container{
+    margin: 10% 0px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.services-button{
+    color: white;
+    background-color:#ae2a27;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+
+    position: absolute;
+    bottom: 0;
+    font-size: 18px;
+    height: 65px;
+    width: 100%;
+}
+.services-content .title{
+    font-size: xx-large;
+}
+
+.services-content p {
+    color: white;
+}
+

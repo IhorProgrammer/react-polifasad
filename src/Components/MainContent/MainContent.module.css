@@ -1,0 +1,55 @@
+/* -------------------Main Content------------------- */
+.main-content-container{
+    height: inherit;
+    display: flex;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    color: white;
+}
+
+.main-content{
+    z-index: 1;
+    height: inherit;
+    overflow: hidden;
+    position: relative;
+}
+.main-content-left{
+    width: 50%;
+    z-index: 0;
+}
+.main-content h1{
+    font-weight: 800;
+}
+.main-content-right{
+    position: absolute !important;
+    bottom: 0;
+    right: 5%;
+    max-height: 60%;
+    max-height: 80%;
+}
+
+@media screen and (max-width: 992px) {
+    .main-content{
+        height: 800px;
+    }
+    .main-content-right {
+        display: none;
+    }
+    .main-content-left{
+        width: 100%;
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .main-content{
+        height: 600px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .main-content{
+        height: 350px;
+    }
+}

@@ -1,0 +1,59 @@
+.main-slider, .slick-slider, .slick-list, .slick-track, .slick-slide, .slick-slide > div, .main-slider img{
+    height: inherit;
+}
+
+.main-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: inherit;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.main-slider .tint{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.40);
+    z-index: 1;
+}
+
+.main-slider .slick-current .play {
+    animation-name: bgn-scale;
+    animation-duration: 6s;
+    animation-timing-function: ease-out;
+    animation-play-state: running;
+    animation-iteration-count: infinite;
+} 
+
+
+@media screen and (max-width: 992px) {
+    .main-slider img{
+        width: 140%;
+        object-fit: cover
+    }
+}
+@media screen and (max-width: 600px) {
+    .main-slider img{
+        width: 200%;
+        transform: translateX(-20%);
+    }
+}
+@media screen and (max-width: 360px) {
+    .main-slider img{
+        width: 170%;
+        transform: translateX(-40%);
+    }
+}
+
+@keyframes bgn-scale {
+    100% {
+        transform: scale(1.1);
+    }
+}
+
