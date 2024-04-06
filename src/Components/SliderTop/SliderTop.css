@@ -1,0 +1,15 @@
+.slider-top{
+    height: 400px;
+    display: flex;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.slider-container .slider-number {
+    font-size: 3rem;
+    color: white;
+    font-weight: bolder;
+    z-index: 3;
+    left: 20px;
+}

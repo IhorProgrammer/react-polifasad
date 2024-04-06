@@ -11,3 +11,56 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+:root{
+  --first-color: #2d2d2d;
+  --second-color: #454545;
+  --red-color: #ae2a27;
+}
+*{
+  font-family: "Exo 2", sans-serif;
+  text-rendering: optimizeLegibility;
+}
+p{
+  font-weight: 300;
+}
+h1,h2,h3,h4,h5,h6{
+  margin: 0;
+}
+.inherit {
+  height: inherit;
+}
+
+/* Apple-menu */
+.logo-text{
+  margin-left: 10px;
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: white;
+}
+
+/* Animation */
+.anm-pulse{
+  animation-name: elementor-animation-pulse-shrink;
+  animation-duration: 0.7s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-play-state: paused;
+}
+.anm-pulse:hover{
+  animation-play-state: running;
+}
+
+
+@media screen and (max-width: 992px) {
+  *{
+      cursor: auto !important;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  h1{
+      font-size: 3rem;
+  }
+}

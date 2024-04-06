@@ -2,6 +2,7 @@ import Slider from "react-slick";
 import { useState } from "react";
 import "./MainSlider.css";
 import "../../css/slick.css";
+import Tint from "../Tint/Tint";
 
 export default function MainSlider() {
     const [slideIndex, setSlideIndex] = useState(0);
@@ -36,7 +37,7 @@ export default function MainSlider() {
             <Slider {...settings}>
                 {bgnImageListItems}
             </Slider>
-            <div className="tint"></div>
+            <Tint/>
         </div>
     );
 }

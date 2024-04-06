@@ -1,0 +1,75 @@
+.container{
+    color: white;
+    margin: 0 auto;
+    max-width: 1400px;
+}
+.container > div:nth-child(even){
+    background-color: var(--first-color);
+}
+.container > div:nth-child(odd){
+    background-color: var(--second-color);
+}
+
+
+.card {
+    width: 270px;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+.content {
+    width: 86%;
+    margin: 7% auto;
+}
+.icon {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+.description{
+    text-align: center;
+    font-weight: 300;
+}
+.title{
+    font-size: xx-large;
+    line-height: 2.5rem;
+    margin: 16px 0;
+    font-weight: bold;
+}
+
+
+@media screen and (min-width: 1400px) {
+    .services-cards{
+        background: rgb(0,0,0);
+        background: linear-gradient(90deg, var(--first-color) 50%, var(--second-color) 50%);
+    }
+}
+@media screen and (max-width: 992px) {
+    .container > div:nth-child(1),
+    .container > div:nth-child(4){
+        background-color: #2d2d2d;
+    }
+
+    .container > div:nth-child(2),
+    .container > div:nth-child(3){
+        background-color: #373737;
+    }
+}
+@media screen and (max-width: 700px) {
+    .services-content .title {
+        font-size: x-large;
+        font-weight: bolder;
+    }
+}
+@media screen and (max-width: 600px) {
+    .container > div:nth-child(even){
+        background-color: var(--first-color);
+    }
+    .container > div:nth-child(odd){
+        background-color: var(--second-color);
+    }
+}
+
+

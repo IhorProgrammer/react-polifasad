@@ -5,7 +5,8 @@ export default function ProjectType() {
     const cards = [
         {url:"images/images/photo/h2.jpg", name: "БАГАТОПОВЕРХОВІ  БУДИНКИ", href:""}, 
         {url:"images/images/photo/h1.jpg", name: "ПРИВАТНІ  БУДИНКИ",  href:""},
-    ]
+    ];
+
     return (
         <section className={style["project-type"]}>
             <div className="container">
@@ -20,7 +21,7 @@ export default function ProjectType() {
                                     <div className={style["type"]}>
                                         <p>{card.name}</p>
                                     </div>
-                                    <a href={card.href} className="anm-pulse">ПОДИВИТСЬ</a>
+                                    <a href={`${PUBLIC_URL}/${card.href}`} className="anm-pulse">ПОДИВИТСЬ</a>
                                 </div>
                             </div>
                         ))
