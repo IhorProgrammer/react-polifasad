@@ -28,7 +28,7 @@
     left: 50%;
     top: 50%;
     padding: 0;
-    margin: 0;
+    margin: 0;    
 } 
 
 
@@ -46,6 +46,7 @@
     clip-path: circle(50%);
     -webkit-clip-path: circle(50%);
     transition: all 2s;
+    aspect-ratio: 1/1;
 
 }
 
@@ -53,7 +54,7 @@
     transform: rotate(10deg);
 }
 
-#colorPickerViewColor{
+.view-color{
     position: absolute;
     overflow: hidden;
     clip-path: circle(50%);
@@ -67,10 +68,9 @@
 #colorPickerViewColor:hover{
     border: white solid 20px;
 }
-#colorPickerTarget{
-    height: inherit;
-    width: inherit;
-    cursor: pointer;
+.colorPickerTarget{
+    height: 100%;
+    width: 100%;
 }
 @keyframes animation-pulse-border {
     100% {

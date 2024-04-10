@@ -4,15 +4,15 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import AppleMenu from "./Components/AppleMenu/AppleMenu";
 import Footer from "./Components/Footer/Footer";
-import Main from './Main';
-import Tile from './Tile';
+import Main from './Components/Main/Main.js';
+import Tile from './Components/Tile/Tile';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
         <>  
             <Pages>
-                <Tile/>
+                <Main/>
             </Pages>
         </>
     </React.StrictMode>);

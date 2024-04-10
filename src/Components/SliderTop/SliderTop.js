@@ -1,9 +1,17 @@
 import Slider from "react-slick";
 import "./SliderTop.css"
 import Tint from "../Tint/Tint";
-export default function SliderTop() {
-    const PUBLIC_URL = process.env.PUBLIC_URL;
+import OkmColorPicker from "../OkmColorPicker/OkmColorPicker";
+import { useState, useEffect } from "react";
+import "slick-carousel/slick/slick.css";
 
+export default function SliderTop() {
+    const [selectedColor, setSelectedColor] = useState("ffffff00");
+    const [OkmColorPickerUpdate, setOkmColorPickerUpdate] = useState(0);
+
+    const handleResize = () => { setOkmColorPickerUpdate(window.innerWidth); }
+    const SelectColorHeadler = (color) => { setSelectedColor(color); }
+    const PUBLIC_URL = process.env.PUBLIC_URL;
     const tiles = [
         "images/tile/1.png",
         "images/tile/2.png",
@@ -29,26 +37,29 @@ export default function SliderTop() {
         arrows: false,
         slidesToShow: 1,
         slidesToScroll: 1,
+        vertical: false,
     };
+
+    useEffect(() => {
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };        
+    }, []);
+
+
     return (
-        <div className="slider-top">
-            <div className="slider-container">
-                <Tint className="bgn-overflow"/>
+        <div className="slider-top row">
+            <div className="slider-container col s12 l5">
+                <Tint className="bgn-overflow" style={{backgroundColor: `#${selectedColor}`}}/>
                 <div className="slider-number">1</div>
                 <Slider {...settings} className="slider-for">
                     {tiles.map((src, key) => <img src={`${PUBLIC_URL}/${src}`} key={key}/>)}
                 </Slider>
             </div>
+            <OkmColorPicker selectColor={SelectColorHeadler} key={OkmColorPickerUpdate}/>
         </div>
     );
 }
 
-// <div className="colorPicker-container">
-//     <div className="Okm-colorPicker square">
-//         <div id="colorPicker"></div>
-//         <div id="colorPickerViewColor" className="viewColor square" >
-//             <div id="colorPickerTarget" style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
-//             </div>
-//         </div>
-//     </div>
-// </div>

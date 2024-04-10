@@ -1,7 +1,6 @@
-import SliderBottom from "./Components/SliderBottom/SliderBottom";
-import SliderTop from "./Components/SliderTop/SliderTop";
+import SliderTop from "../SliderTop/SliderTop";
+import SliderBottom from "../SliderBottom/SliderBottom";
 import "./Tile.css"
-
 import { useEffect, useState } from "react";
 export default function Tile() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
