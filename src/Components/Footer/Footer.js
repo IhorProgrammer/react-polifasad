@@ -1,5 +1,6 @@
 import Social from "../Social/Social";
 import style from "./Footer.module.css"
+import { Link } from "react-router-dom";
 export default function Footer() {
     const PUBLIC_URL = process.env.PUBLIC_URL;
     return (
@@ -16,11 +17,11 @@ export default function Footer() {
                     <div className="col s12 m6 l7">
                         <p className="center">Навігація</p>
                         <ul>
-                            <li><a href="index">Головна</a></li>
-                            <li><a href="price">Ціни</a></li>
-                            <li><a href="tile">Зразки термоплит</a></li>
+                            <li><Link to="/">Головна</Link></li>
+                            <li><Link to="price">Ціни</Link></li>
+                            <li><Link to="tile">Зразки термоплит</Link></li>
                             <li>
-                                <a href="galery">Галерея робіт</a>
+                                <Link to="galery">Галерея робіт</Link>
                                 <ul className="browser-default" type="disc">
                                     <li><a href="aaa">БАГАТОПОВЕРХОВІ  БУДИНКИ</a></li> 
                                     <li><a href="aaa">МАГАЗИНИ, НЕЖИТЛОВІ ПРИМІЩЕННЯ</a></li>

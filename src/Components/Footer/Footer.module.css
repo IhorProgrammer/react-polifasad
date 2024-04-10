@@ -1,14 +1,22 @@
 /* ------------------- Footer ------------------- */
+:root{
+    --first-color: #2d2d2d;
+    --second-color: #454545;
+    --red-color: #ae2a27;
+}
+
 .footer{
     background-color: var(--first-color);
     color: white;
     padding: 1px;
     margin: 0;
     border-top: 5px var(--red-color) solid;
+    clear: both;
 }
 .container{
     background-color: var(--first-color);
-    margin-top: 40px;
+    max-width: 1300px;    
+    margin: 2% auto;
 }
 .footer a {
     text-decoration: none;
@@ -35,4 +43,10 @@ iframe{
 }
 .footer .social-container{
     height: auto;
+}
+
+@media screen and (max-width: 992px) {
+    .container {
+        margin: 20px 5%;
+    }
 }

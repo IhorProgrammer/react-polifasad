@@ -1,6 +1,7 @@
 import SliderTop from "../SliderTop/SliderTop";
 import SliderBottom from "../SliderBottom/SliderBottom";
-import "./Tile.css"
+import "./Tile.scss"
+
 import { useEffect, useState } from "react";
 export default function Tile() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -15,13 +16,13 @@ export default function Tile() {
     }, []);
 
     return (
-        <main>
+        <main className="tile-page">
             <section className="image-picker">
                 <div className="title">
                     <h1>Зразки термоплит</h1>
                 </div>
-                <SliderTop/>
-                { windowWidth < 992 || <SliderBottom/>}
+                <SliderTop />
+                { windowWidth < 992 || <SliderBottom />}
             </section>
         </main>
     );

@@ -1,25 +1,25 @@
-.main-slider, .slick-slider, .slick-list, .slick-track, .slick-slide, .slick-slide > div, .main-slider img{
-    height: inherit;
-}
 
 .main-slider {
+    height: inherit;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: inherit;
     overflow: hidden;
     z-index: 0;
+
+    .slick-slider, .slick-list, .slick-track, .slick-slide, .slick-slide > div, img {
+        height: inherit;
+
+    }
+    .slick-current .play {
+        animation-name: bgn-scale;
+        animation-duration: 6s;
+        animation-timing-function: ease-out;
+        animation-play-state: running;
+        animation-iteration-count: infinite;
+    } 
 }
-
-.main-slider .slick-current .play {
-    animation-name: bgn-scale;
-    animation-duration: 6s;
-    animation-timing-function: ease-out;
-    animation-play-state: running;
-    animation-iteration-count: infinite;
-} 
-
 
 @media screen and (max-width: 992px) {
     .main-slider img{

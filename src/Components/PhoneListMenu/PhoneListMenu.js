@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
-import "./PhoneListMenu.css"
+import "./PhoneListMenu.scss"
 export default function PhoneListMenu() {
     return (
         <>
-         <Dropdown>
+         <Dropdown className="phone-list-menu">
             <Dropdown.Toggle className="phone-btn-trigger" variant="success" id="dropdown-basic">
                 Дзвоніть зараз
             </Dropdown.Toggle>

@@ -1,9 +1,9 @@
 import Slider from "react-slick";
-import "./SliderTop.css"
-import Tint from "../Tint/Tint";
-import OkmColorPicker from "../OkmColorPicker/OkmColorPicker";
-import { useState, useEffect } from "react";
 import "slick-carousel/slick/slick.css";
+import { useState, useEffect } from "react";
+import OkmColorPicker from "../OkmColorPicker/OkmColorPicker";
+import Tint from "../Tint/Tint";
+import "./SliderTop.scss"
 
 export default function SliderTop() {
     const [selectedColor, setSelectedColor] = useState("ffffff00");

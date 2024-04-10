@@ -1,6 +1,6 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
-import "./SliderBottom.css"
+import "./SliderBottom.scss"
 
 export default function SliderBottom() {
     const PUBLIC_URL = process.env.PUBLIC_URL;

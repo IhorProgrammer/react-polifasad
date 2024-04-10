@@ -51,4 +51,7 @@
     .main-content{
         height: 350px;
     }
+    h1 {
+        font-size: 1rem;
+    }
 }

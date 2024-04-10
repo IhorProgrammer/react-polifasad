@@ -1,0 +1,22 @@
+/* Apple-menu */
+.logo-text{
+  margin-left: 10px;
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: white;
+}
+
+/* Animation */
+.anm-pulse{
+  animation-name: elementor-animation-pulse-shrink;
+  animation-duration: 0.7s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-play-state: paused;
+}
+.anm-pulse:hover{
+  animation-play-state: running;
+}
+
+

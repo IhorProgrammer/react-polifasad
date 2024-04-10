@@ -1,7 +1,8 @@
 import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
 import { useState } from "react";
-import "./MainSlider.css";
-import "../../css/slick.css";
+import "./MainSlider.scss";
+
 import Tint from "../Tint/Tint";
 
 export default function MainSlider() {

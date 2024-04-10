@@ -1,14 +1,14 @@
 import { Parallax } from "react-parallax";
 import Tint from "../Tint/Tint";
 import style from "./BgnParallax.module.css";
-import "./BgnParallax.css";
+import "./BgnParallax.scss";
 
 
 export default function BgnParallax() {
     const PUBLIC_URL = process.env.PUBLIC_URL;
 
     return (
-        <section className={style["bgn-parallax"]}>
+        <section className={`${style["bgn-parallax"]} bgn-parallax`} >
                 <Tint/>
                 <Parallax bgImage={`${PUBLIC_URL}/images/logo/logo.svg`} bgImageAlt="logo" bgImageStyle={{opacity: '1'}}>
                     <a href="https://www.youtube.com/watch?v=gAhW8YFKDZg" className={style["parallax-container-content"]}>

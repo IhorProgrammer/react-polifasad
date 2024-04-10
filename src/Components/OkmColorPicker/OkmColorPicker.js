@@ -1,4 +1,4 @@
-import "./OkmColorPicker.css";
+import "./OkmColorPicker.scss";
 import React, { useEffect, useState, useRef } from "react";
 
 function OkmColorPicker(props) {
