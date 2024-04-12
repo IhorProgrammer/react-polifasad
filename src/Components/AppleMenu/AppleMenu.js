@@ -11,7 +11,7 @@ export default function AppleMenu(props) {
     const pages = [
         {name: "Головна", to: "/"},
         {name: "Зразки термоплит", to: "tile"},
-        {name: "Галерея", to: "galery"},
+        {name: "Галерея", to: "gallery"},
         {name: "Ціна", to: "price"},
     ]
 

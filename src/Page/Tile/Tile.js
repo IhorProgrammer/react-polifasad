@@ -1,5 +1,5 @@
-import SliderTop from "../SliderTop/SliderTop";
-import SliderBottom from "../SliderBottom/SliderBottom";
+import SliderTop from "../../Components/SliderTop/SliderTop";
+import SliderBottom from "../../Components/SliderBottom/SliderBottom";
 import "./Tile.scss"
 
 import { useEffect, useState } from "react";

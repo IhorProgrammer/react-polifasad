@@ -5,7 +5,7 @@ import "./MainSlider.scss";
 
 import Tint from "../Tint/Tint";
 
-export default function MainSlider() {
+export default function MainSlider(props) {
     const [slideIndex, setSlideIndex] = useState(0);
 
     const PUBLIC_URL = process.env.PUBLIC_URL;
@@ -34,7 +34,7 @@ export default function MainSlider() {
     };
 
     return (
-        <div className="main-slider">
+        <div className={`main-slider ${props.className || ""}` } >
             <Slider {...settings}>
                 {bgnImageListItems}
             </Slider>
