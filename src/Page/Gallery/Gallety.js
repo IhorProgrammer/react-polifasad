@@ -1,21 +1,21 @@
 import MainSlider from "../../Components/MainSlider/MainSlider";
-import {Accordion, ListGroup, Form } from 'react-bootstrap';
+import {Accordion, Form, Offcanvas } from 'react-bootstrap';
 import "./Gallery.scss"
-//import 'bootstrap/dist/css/bootstrap.min.css';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import APIGetFilters from "./gallery_list_filters";
 import APIGetGallery from "./gallery_list_card";
-import GetJsonTypeTexture from "./gallery_list_type_texture";
-import { useState } from "react";
-import { useLocation } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export default function Gallery() {
-    const groups = APIGetFilters();
+    const filtres = APIGetFilters();
     const location = useLocation();
-    // gallery?type=1,2&texture=1
-    // Отримую такий запрос після чого я змінюю вміст. 
-    // Розбираємо це і потім відправляємо у вигляді посилання на API там розбирається і видає результат
-    const works = APIGetGallery(location.search); 
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        setData(APIGetGallery(location.search))
+    }, [location.search]); 
+
     return (
         <main className="Gallery_page">
             <div>
@@ -25,50 +25,86 @@ export default function Gallery() {
                 </div>
             </div>
             <div className="Gallery_page__Filters_Card">
-                <FormGalleryDesktop groups={groups}/>
-                <GalleryCard works={works}/>
+                <FormGalleryMobile groups={filtres}/>
+                <GalleryCard works={data} filtres={filtres}/>
             </div>
 
         </main>
     );
 }
 
+function FormGalleryDesktop(props) {
+    return <FormGallery {...props} style={{width: "300px"}} />
+}
 
-function FormGalleryDesktop({groups}) {
+function FormGalleryMobile(props) {
+    const [show, setShow] = useState(true);
+    const handleClose = () => setShow(false);
+
+    return (
+        <Offcanvas show={show} onHide={handleClose}>
+            <Offcanvas.Header closeButton>
+                <Offcanvas.Title>Фільтри</Offcanvas.Title>
+            </Offcanvas.Header>
+            <Offcanvas.Body>
+                <FormGallery {...props}/>
+            </Offcanvas.Body>
+        </Offcanvas>
+    );
+}
+
+function FormGallery({groups}) {
+    const location = useLocation();
+    const searchParams = new URLSearchParams(location.search);
+    const navigate = useNavigate();
+
     const [checkboxStates, setCheckboxStates] = useState(
         groups.reduce((acc, group) => {
             acc[group.name] = {}
+            const searchGroup = searchParams.get(group.name) ? searchParams.get(group.name).split(',').map(Number) : [];
             group.options.forEach(option => {
-                acc[group.name][option.id] = false;
+                if( searchGroup && searchGroup.some( item => item === Number(option.id)) )
+                    acc[group.name][option.id] = true;
             });
             return acc;
         }, {})
     );
+    const [isFirstRender, setIsFirstRender] = useState(true);
+
+    useEffect(() => {
+        if (isFirstRender) {
+            setIsFirstRender(false);
+            return;
+        }
+        const urlParams = Object.entries(checkboxStates).map(([key, value]) => {
+            const subKeys = Object.keys(value).join(',');
+            if(subKeys.trim().length != 0)
+                return `${key}=${subKeys}`;
+            return '';
+        }).filter(value => {
+            if(value.length > 0)
+                return value
+        })
+        if(urlParams.length > 0) navigate(`/gallery?${ urlParams.join('&') }`);
+        else navigate(`/gallery`)
+    }, [checkboxStates])
 
     const handleChange = (event) => {
         const { name, checked, value } = event.target;
         setCheckboxStates(prev => {
             const copyPrev = {...prev}
-            copyPrev[name][value] = checked;  
-            return copyPrev
+            copyPrev[name][value] = checked;
+            if( copyPrev[name][value] === false) delete copyPrev[name][value]; 
+            return copyPrev;
         });
     };
 
-    // Функція для обробки відправлення форми
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log(checkboxStates);
-        // Відправка даних на сервер тут
-    };
-
     return (
-        <Form className="Gallery_page__Filters_Gallery">
-            <p className="title">Фільтри</p>
-            <hr/>
-            <Accordion defaultActiveKey="0" alwaysOpen>
+        <Form className="Gallery_page__Form_Gallery">
+            <Accordion defaultActiveKey={[0,1,2,3]} alwaysOpen>
                 {
                     groups.map( (group, key) => (
-                        <Accordion.Item eventKey={key} key={key}>
+                        <Accordion.Item eventKey={key} key={key} >
                             <Accordion.Header>
                                 <span>{group.label} <sup className="length">{group.options.length}</sup> </span>
                             </Accordion.Header>
@@ -78,7 +114,7 @@ function FormGalleryDesktop({groups}) {
                                         group.options.map( (option, key) => (
                                             <li key={key}>
                                                 <label>
-                                                    <input type="checkbox" className="filled-in" onChange={handleChange} name={group.name} value={option.id}/>
+                                                    <input type="checkbox" className="filled-in" onChange={handleChange} name={group.name} value={option.id} checked={checkboxStates[group.name][option.id] || false}/>
                                                     <span>{option.label}</span>
                                                 </label>
                                             </li>
@@ -94,22 +130,26 @@ function FormGalleryDesktop({groups}) {
     );
 }
 
-
-
-function GalleryCard({works}) {
+function GalleryCard({works, filtres}) {
+   
     const PUBLIC_URL = process.env.PUBLIC_URL;
-    const typeTexture = GetJsonTypeTexture();
+
     return (
         <div className="Gallery_page__Gallery_Card">
             <div className="cards row">
                 {works.map((work, key) => (
-                    <div className="card col xl3 l4 m6 s12" key={key}>
+                    <div className="card col l3 m4 s6" key={key}>
                         <div className="card-container">
                             <img src={`${PUBLIC_URL}/images/gallery/short/${work.file_name}`} alt={work.file_name} loading="lazy"/>
                             <div className="description">
-                                <span>{typeTexture.type.find(item => item.id === work.type).name}</span>
-                                ,
-                                <span>{typeTexture.texture.find(item => item.id === work.texture).name}</span>
+                                {filtres.map((filter, key) => (
+                                        <span key={key}>
+                                            {
+                                                filter.options.find(item => item.id === work[filter.name]).label
+                                            }
+                                            ,
+                                        </span>                                        
+                                ))}
                             </div>
                         </div>
                     </div>
