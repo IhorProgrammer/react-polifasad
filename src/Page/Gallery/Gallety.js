@@ -1,12 +1,10 @@
 import MainSlider from "../../Components/MainSlider/MainSlider";
 import {Accordion, Form, Offcanvas } from 'react-bootstrap';
 import "./Gallery.scss"
-import 'bootstrap/dist/css/bootstrap.min.css';
 import APIGetFilters from "./gallery_list_filters";
 import APIGetGallery from "./gallery_list_card";
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from 'react-router-dom';
-
 export default function Gallery() {
     const filtres = APIGetFilters();
     const location = useLocation();
@@ -25,7 +23,12 @@ export default function Gallery() {
                 </div>
             </div>
             <div className="Gallery_page__Filters_Card">
-                <FormGalleryMobile groups={filtres}/>
+                {
+                    window.innerWidth > 992 ? 
+                    <FormGalleryDesktop groups={filtres}/>
+                    :
+                    <FormGalleryMobile groups={filtres}/>
+                }
                 <GalleryCard works={data} filtres={filtres}/>
             </div>
 
@@ -34,26 +37,30 @@ export default function Gallery() {
 }
 
 function FormGalleryDesktop(props) {
-    return <FormGallery {...props} style={{width: "300px"}} />
+    return <FormGallery {...props} style={{width: "300px"}} isDesktop={true}/>
 }
 
 function FormGalleryMobile(props) {
-    const [show, setShow] = useState(true);
+    const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     return (
-        <Offcanvas show={show} onHide={handleClose}>
-            <Offcanvas.Header closeButton>
-                <Offcanvas.Title>Фільтри</Offcanvas.Title>
-            </Offcanvas.Header>
-            <Offcanvas.Body>
-                <FormGallery {...props}/>
-            </Offcanvas.Body>
-        </Offcanvas>
+        <>
+            <Offcanvas show={show} onHide={handleClose}>
+                <Offcanvas.Header closeButton>
+                    <Offcanvas.Title>Фільтри</Offcanvas.Title>
+                </Offcanvas.Header>
+                <Offcanvas.Body>
+                    <FormGallery {...props}/>
+                </Offcanvas.Body>
+            </Offcanvas>
+            <button className="button-fillter-triger" onClick={handleShow}>Фільтрувати галерею</button>
+        </>
     );
 }
 
-function FormGallery({groups}) {
+function FormGallery({groups, isDesktop}) {
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
     const navigate = useNavigate();
@@ -101,6 +108,10 @@ function FormGallery({groups}) {
 
     return (
         <Form className="Gallery_page__Form_Gallery">
+            {
+                isDesktop && <><div className="title-desktop">Фільтри</div><hr/></>
+            }
+            
             <Accordion defaultActiveKey={[0,1,2,3]} alwaysOpen>
                 {
                     groups.map( (group, key) => (

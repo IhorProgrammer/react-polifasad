@@ -30,7 +30,7 @@ export default function Footer() {
                             </li>
                         </ul>
                     </div>
-                    <div className="contacts col s12 m6 l5">
+                    <div className={`${style["contacts"]} col s12 m6 l5`}>
                         <p>Номера телефонів</p>
                         <ul className={style["phone-list"]}>
                             <li><a href="tel:+380684614655">0684614655</a></li>

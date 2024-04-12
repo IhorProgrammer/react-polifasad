@@ -44,6 +44,9 @@ iframe{
 .footer .social-container{
     height: auto;
 }
+.contacts {
+    margin-bottom: 60px;
+}
 
 @media screen and (max-width: 992px) {
     .container {
