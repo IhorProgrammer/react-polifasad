@@ -22,7 +22,7 @@ export default function ProjectType() {
                                     <div className={style["type"]}>
                                         <p>{card.name}</p>
                                     </div>
-                                    <Link to={`${card.href}`} className="anm-pulse">ПОДИВИТСЬ</Link>
+                                    <Link to={`${card.href}`} className="anm-pulse">ПОДИВИТИСЬ</Link>
                                 </div>
                             </div>
                         ))
