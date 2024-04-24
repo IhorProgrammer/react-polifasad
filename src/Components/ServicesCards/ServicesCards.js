@@ -16,7 +16,7 @@ export default function ServicesCards(){
         {
             iconSrc: "images/icons/list-verification-symbol-svgrepo-com.svg",
             title: "Надійність",
-            describe: "Гарантія 30 років",
+            describe: "Монтаж поліфасаду кваліфікованими майстрами",
         },
         {
             iconSrc: "images/icons/best-price-guarantee-warranty-svgrepo-com.svg",

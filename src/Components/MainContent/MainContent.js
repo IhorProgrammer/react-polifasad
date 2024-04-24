@@ -13,7 +13,7 @@ export default function MainContent() {
                     
                     <PhoneListMenu/>
                 </div>
-                <img className={styles["main-content-right"]} src={`${PUBLIC_URL}/images/images/photo/worker.png`} alt=""/>
+                {/* <img className={styles["main-content-right"]} src={`${PUBLIC_URL}/images/images/photo/worker.png`} alt=""/> */}
             </div>
         </div>    
     );

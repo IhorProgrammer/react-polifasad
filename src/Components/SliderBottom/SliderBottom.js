@@ -2,7 +2,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "./SliderBottom.scss"
 
-export default function SliderBottom() {
+export default function SliderBottom(props) {
     const PUBLIC_URL = process.env.PUBLIC_URL;
 
     const tiles = [
@@ -31,6 +31,8 @@ export default function SliderBottom() {
         slidesToShow: 3,
         swipeToSlide: true,
         centerMode: true,
+        asNavFor: props.asNavFor,
+        ref: props.ref,
         afterChange: function(index) {
             console.log(
               `Slider Changed to: ${index + 1}, background: #222; color: #bada55`

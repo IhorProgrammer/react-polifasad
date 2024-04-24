@@ -5,7 +5,7 @@ import OkmColorPicker from "../OkmColorPicker/OkmColorPicker";
 import Tint from "../Tint/Tint";
 import "./SliderTop.scss"
 
-export default function SliderTop() {
+export default function SliderTop(props) {
     const [selectedColor, setSelectedColor] = useState("ffffff00");
     const [OkmColorPickerUpdate, setOkmColorPickerUpdate] = useState(0);
 
@@ -38,6 +38,8 @@ export default function SliderTop() {
         slidesToShow: 1,
         slidesToScroll: 1,
         vertical: false,
+        asNavFor: props.asNavFor,
+        ref: props.ref,
     };
 
     useEffect(() => {

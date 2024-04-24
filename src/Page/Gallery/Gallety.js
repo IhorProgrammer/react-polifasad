@@ -24,10 +24,10 @@ export default function Gallery() {
             </div>
             <div className="Gallery_page__Filters_Card">
                 {
-                    window.innerWidth > 992 ? 
-                    <FormGalleryDesktop groups={filtres}/>
-                    :
-                    <FormGalleryMobile groups={filtres}/>
+                    // window.innerWidth > 992 ? 
+                    // <FormGalleryDesktop groups={filtres}/>
+                    // :
+                    // <FormGalleryMobile groups={filtres}/>
                 }
                 <GalleryCard works={data} filtres={filtres}/>
             </div>
@@ -60,13 +60,13 @@ function FormGalleryMobile(props) {
     );
 }
 
-function FormGallery({groups, isDesktop}) {
+function FormGallery(props) {
     const location = useLocation();
     const searchParams = new URLSearchParams(location.search);
     const navigate = useNavigate();
 
     const [checkboxStates, setCheckboxStates] = useState(
-        groups.reduce((acc, group) => {
+        props.groups.reduce((acc, group) => {
             acc[group.name] = {}
             const searchGroup = searchParams.get(group.name) ? searchParams.get(group.name).split(',').map(Number) : [];
             group.options.forEach(option => {
@@ -107,14 +107,14 @@ function FormGallery({groups, isDesktop}) {
     };
 
     return (
-        <Form className="Gallery_page__Form_Gallery">
+        <Form className="Gallery_page__Form_Gallery" style={props.style}>
             {
-                isDesktop && <><div className="title-desktop">Фільтри</div><hr/></>
+                props.isDesktop && <><div className="title-desktop">Фільтри</div><hr/></>
             }
             
             <Accordion defaultActiveKey={[0,1,2,3]} alwaysOpen>
                 {
-                    groups.map( (group, key) => (
+                    props.groups.map( (group, key) => (
                         <Accordion.Item eventKey={key} key={key} >
                             <Accordion.Header>
                                 <span>{group.label} <sup className="length">{group.options.length}</sup> </span>
@@ -152,7 +152,7 @@ function GalleryCard({works, filtres}) {
                     <div className="card col l3 m4 s6" key={key}>
                         <div className="card-container">
                             <img src={`${PUBLIC_URL}/images/gallery/short/${work.file_name}`} alt={work.file_name} loading="lazy"/>
-                            <div className="description">
+                            {/* <div className="description">
                                 {filtres.map((filter, key) => (
                                         <span key={key}>
                                             {
@@ -161,11 +161,16 @@ function GalleryCard({works, filtres}) {
                                             ,
                                         </span>                                        
                                 ))}
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 ))}
             </div>
         </div>
     );
+}
+
+
+function NotingFound() {
+    
 }

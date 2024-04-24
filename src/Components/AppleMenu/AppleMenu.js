@@ -29,7 +29,7 @@ export default function AppleMenu(props) {
                     </div>
                 </div>
                 <ul className="desktop-container">
-                    {pages.map((pages, key) => <li key={key}><Link to={pages.to}>{pages.name}</Link></li>)}<li><Social/></li>
+                    {pages.map((pages, key) => <li key={key}><Link to={pages.to}>{pages.name}</Link></li>)}<li><Social className="border"/></li>
                 </ul>
             </div>
             <ul className="menu">

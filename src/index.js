@@ -8,6 +8,7 @@ import Main from './Page/Main/Main.js';
 import Tile from './Page/Tile/Tile.js';
 import { BrowserRouter ,Route, Routes } from "react-router-dom";
 import Galley from './Page/Gallery/Gallety.js';
+import ScrollToTop from './Components/ScrollToTop/ScrollToTop.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -23,6 +24,7 @@ function Pages(props) {
     return (
         <>
             <AppleMenu/>
+                <ScrollToTop/>
                 <Routes>
                     <Route path="/gallery/*" element={<Galley/>} />
                     <Route path="/" element={<Main/>} />
