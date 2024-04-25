@@ -6,6 +6,8 @@ import AppleMenu from "./Components/AppleMenu/AppleMenu";
 import Footer from "./Components/Footer/Footer";
 import Main from './Page/Main/Main.js';
 import Tile from './Page/Tile/Tile.js';
+import Page from './Page/Price/Price.js';
+
 import { BrowserRouter ,Route, Routes } from "react-router-dom";
 import Galley from './Page/Gallery/Gallety.js';
 import ScrollToTop from './Components/ScrollToTop/ScrollToTop.js';
@@ -29,6 +31,7 @@ function Pages(props) {
                     <Route path="/gallery/*" element={<Galley/>} />
                     <Route path="/" element={<Main/>} />
                     <Route path="/tile" element={<Tile/>} />
+                    <Route path="/price" element={<Page/>} />
                 </Routes>
             <Footer/>
         </>

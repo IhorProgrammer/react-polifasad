@@ -6,13 +6,11 @@ import "slick-carousel/slick/slick.css";
 import "./Tile.scss"
 
 import { useEffect, useState, useRef } from "react";
-import Tint from "../../Components/Tint/Tint";
-import OkmColorPicker from "../../Components/OkmColorPicker/OkmColorPicker";
+
 export default function Tile() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const handleResize = () => {
         setWindowWidth(window.innerWidth);
-        setOkmColorPickerUpdate(window.innerWidth);
     };
 
     const [nav1, setNav1] = useState(null);
@@ -29,10 +27,7 @@ export default function Tile() {
         };
     }, []);
 
-    const [selectedColor, setSelectedColor] = useState("ffffff00");
-    const [OkmColorPickerUpdate, setOkmColorPickerUpdate] = useState(0);
-
-    const SelectColorHeadler = (color) => { setSelectedColor(color); }
+    const [sliderNum, setSliderNum] = useState(0); 
     const PUBLIC_URL = process.env.PUBLIC_URL;
     const tiles = [
         "images/tile/1.png",
@@ -62,25 +57,24 @@ export default function Tile() {
         vertical: false,
         asNavFor: nav1,
         ref: slider => (sliderRef2 = slider),
+        beforeChange: (current, next) => {
+            setSliderNum(next);
+        },
     };
     const bottomSliderSettings = {
         lazyLoad: true,
         infinite: true,
         arrows: true,
-        slidesToShow: 5,
+        slidesToShow: 3,
         swipeToSlide: true,
         centerMode: true,
         asNavFor: nav2,
         ref: slider => (sliderRef1 = slider),
-        afterChange: function(index) {
-            console.log(
-              `Slider Changed to: ${index + 1}, background: #222; color: #bada55`
-            );
-        },
 
         nextArrow: <SliderBottomNextArrow/>,
         prevArrow: <SliderBottomPrevArrow/>,
     };
+
 
     return (
         <main className="tile-page">
@@ -88,22 +82,15 @@ export default function Tile() {
                 <div className="title">
                     <h1>Зразки термоплит</h1>
                 </div>
-                <div className="slider-top row">
-                    <div className="slider-container col s12 l5">
-                        <Tint className="bgn-overflow" style={{backgroundColor: `#${selectedColor}`}}/>
-                        <div className="slider-number">1</div>
-                        <Slider {...topSliderSettings} className="slider-for">
-                            {tiles.map((src, key) => <img src={`${PUBLIC_URL}/${src}`} key={key}/>)}
-                        </Slider>
-                    </div>
-                    <OkmColorPicker selectColor={SelectColorHeadler} key={OkmColorPickerUpdate}/>
-                </div>
+                {/* <SliderDesktop sliderNum={sliderNum} topSliderSettings={topSliderSettings} bottomSliderSettings={bottomSliderSettings} tiles={tiles}/> */}
+                {
+                    windowWidth < 600 ?
+                    <SliderMobile sliderNum={sliderNum} topSliderSettings={topSliderSettings} tiles={tiles}/>
+                    :
+                    <SliderDesktop sliderNum={sliderNum} topSliderSettings={topSliderSettings} bottomSliderSettings={bottomSliderSettings} tiles={tiles}/>
 
-                { windowWidth < 992 || 
-                    <Slider {...bottomSliderSettings} className="slider-bottom">
-                        {tiles.map((src, key) => <div className="slider-bottom-container" key={key}><img className="slider-bottom-slider" src={`${PUBLIC_URL}/${src}`} /></div>)}
-                    </Slider>
                 }
+                
             </section>
         </main>
     );
@@ -114,7 +101,9 @@ function SliderBottomNextArrow(props) {
     const PUBLIC_URL = process.env.PUBLIC_URL;
   
     return (
-      <img onClick={onClick} className={className} style={{...styles}} src={`${PUBLIC_URL}/images/icons/navigate_next.svg`}/>
+        <div className="next-arrow-container" onClick={onClick}>
+            <img className={className} style={{...styles}} src={`${PUBLIC_URL}/images/icons/navigate_next.svg`}/>
+        </div>
     );
 } 
 function SliderBottomPrevArrow(props) {
@@ -122,6 +111,52 @@ function SliderBottomPrevArrow(props) {
     const PUBLIC_URL = process.env.PUBLIC_URL;
   
     return (
-        <img onClick={onClick} className={className} style={{...styles}} src={`${PUBLIC_URL}/images/icons/navigate_back.svg`}/>
+        <div className="prev-arrow-container" onClick={onClick}>
+            <img  className={className} style={{...styles}} src={`${PUBLIC_URL}/images/icons/navigate_back.svg`}/>
+        </div>
+    );
+}
+
+function SliderDesktop({sliderNum, topSliderSettings, bottomSliderSettings, tiles}) {
+    const PUBLIC_URL = process.env.PUBLIC_URL;
+
+
+    return (
+        <>
+            <div className="slider-top row">
+                <div className="slider-container col s12 l5">
+                    <div className="slider-number">{sliderNum + 1}</div>
+                    <Slider {...topSliderSettings} className="slider-for">
+                        {tiles.map((src, key) => <img src={`${PUBLIC_URL}/${src}`} key={key}/>)}
+                    </Slider>
+                </div>
+                {/* <OkmColorPicker selectColor={SelectColorHeadler} key={OkmColorPickerUpdate}/> */}
+            </div>
+            <Slider {...bottomSliderSettings} className="slider-bottom">
+                {tiles.map((src, key) => <div className="slider-bottom-container" key={key}><img className="slider-bottom-slider" src={`${PUBLIC_URL}/${src}`} /></div>)}
+            </Slider>
+        </>
+    );
+}
+
+function SliderMobile({sliderNum, topSliderSettings, tiles}) {
+    const PUBLIC_URL = process.env.PUBLIC_URL;
+    topSliderSettings = {
+        ...topSliderSettings, 
+        asNavFor: null,
+        arrows: true,
+
+        nextArrow: <SliderBottomNextArrow/>,
+        prevArrow: <SliderBottomPrevArrow/>,
+    }
+    return (
+        <div className="slider-top row">
+            <div className="slider-container col s12 l5">
+                <div className="slider-number">{sliderNum + 1}</div>
+                <Slider {...topSliderSettings} className="slider-mobile">
+                    {tiles.map((src, key) => <img src={`${PUBLIC_URL}/${src}`} key={key}/>)}
+                </Slider>
+            </div>
+        </div>
     );
 }

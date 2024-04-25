@@ -2,7 +2,6 @@ import styles from './Social.module.css';
 
 export default function Social({className}) {
     const PUBLIC_URL = process.env.PUBLIC_URL;
-    console.log(`${styles.social} ${className}`)
     return (
         <div className={`${styles.social} ${styles[className]}`}>
             <a aria-label="facebook" href="https://www.facebook.com/teplaosela"><img src={PUBLIC_URL+"/images/icons/facebook.svg"} alt=""/></a>

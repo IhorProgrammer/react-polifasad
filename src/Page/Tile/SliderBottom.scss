@@ -9,11 +9,13 @@
         width: 80%;
     }
 
-    .slick-next {
+    .prev-arrow-container, .next-arrow-container {
         width: 10%;
+        display: flex;
+        align-items: center;
     }
-    .slick-prev {
-        width: 10%;
+    .slick-arrow {
+        width: 100%;
     }
 
     .slider-bottom-slider{

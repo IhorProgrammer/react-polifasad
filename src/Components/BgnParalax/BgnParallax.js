@@ -11,7 +11,7 @@ export default function BgnParallax() {
         <section className={`${style["bgn-parallax"]} bgn-parallax`} >
                 <Tint/>
                 <Parallax bgImage={`${PUBLIC_URL}/images/logo/logo.svg`} bgImageAlt="logo" bgImageStyle={{opacity: '1'}}>
-                    <a href="https://www.youtube.com/watch?v=gAhW8YFKDZg" className={style["parallax-container-content"]}>
+                    <a href="https://www.youtube.com/@user-qm8rh9no3n/videos" className={style["parallax-container-content"]}>
                         <div className={style["icon-bgn"]}>
                             <img alt="play" src={PUBLIC_URL + "/images/icons/play-video.svg"} className={style["icon"]}></img>
                         </div>

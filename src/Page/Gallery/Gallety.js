@@ -5,6 +5,7 @@ import APIGetFilters from "./gallery_list_filters";
 import APIGetGallery from "./gallery_list_card";
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from 'react-router-dom';
+
 export default function Gallery() {
     const filtres = APIGetFilters();
     const location = useLocation();

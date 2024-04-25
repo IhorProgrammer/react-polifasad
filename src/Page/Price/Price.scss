@@ -1,0 +1,38 @@
+.Price-page {
+    max-width: 1200px;
+    margin: 100px auto 0 auto;
+    width: 100%;
+    padding: 0 2%;
+    color: rgb(226, 226, 226);
+    &__title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        h1 {
+            font-size: 5rem;
+            font-weight: bold;
+        }
+        p {
+            font-size: 2rem;
+            font-style: italic;
+        }
+    }
+    &__info {
+
+    }
+    &__info-title {
+        font-size: 2rem;
+    }
+    &__list {
+        margin-left: 20px;
+    }
+    &__item {
+        font-size: 2rem;
+    }
+
+    iframe {
+        height: 600px;
+        margin: 30px 0;
+    }
+}
