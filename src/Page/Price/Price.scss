@@ -2,7 +2,7 @@
     max-width: 1200px;
     margin: 100px auto 0 auto;
     width: 100%;
-    padding: 0 2%;
+    padding: 0 20px;
     color: rgb(226, 226, 226);
     &__title {
         display: flex;
@@ -16,23 +16,30 @@
         p {
             font-size: 2rem;
             font-style: italic;
+            text-align: center;
         }
     }
-    &__info {
-
-    }
-    &__info-title {
+    &__info-title, &__item {
         font-size: 2rem;
     }
     &__list {
         margin-left: 20px;
     }
-    &__item {
-        font-size: 2rem;
-    }
 
     iframe {
         height: 600px;
         margin: 30px 0;
+    }
+    
+    @media screen and (max-width: 600px) {
+        &__title p, &__info-title {
+            font-size: 1.7rem;
+        }
+        &__item {
+            font-size: 1.3rem;
+        }
+        &__list {
+            margin-left: 0;
+        }
     }
 }
