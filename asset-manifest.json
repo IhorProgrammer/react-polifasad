@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react-polifasad/static/css/main.e7eb2b43.css",
-    "main.js": "/react-polifasad/static/js/main.e34f31c3.js",
+    "main.css": "/react-polifasad/static/css/main.04400ebe.css",
+    "main.js": "/react-polifasad/static/js/main.c765f542.js",
     "static/js/453.32858671.chunk.js": "/react-polifasad/static/js/453.32858671.chunk.js",
     "index.html": "/react-polifasad/index.html",
-    "main.e7eb2b43.css.map": "/react-polifasad/static/css/main.e7eb2b43.css.map",
-    "main.e34f31c3.js.map": "/react-polifasad/static/js/main.e34f31c3.js.map",
+    "main.04400ebe.css.map": "/react-polifasad/static/css/main.04400ebe.css.map",
+    "main.c765f542.js.map": "/react-polifasad/static/js/main.c765f542.js.map",
     "453.32858671.chunk.js.map": "/react-polifasad/static/js/453.32858671.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e7eb2b43.css",
-    "static/js/main.e34f31c3.js"
+    "static/css/main.04400ebe.css",
+    "static/js/main.c765f542.js"
   ]
 }
