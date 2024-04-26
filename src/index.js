@@ -11,6 +11,7 @@ import Page from './Page/Price/Price.js';
 import { BrowserRouter ,Route, Routes } from "react-router-dom";
 import Galley from './Page/Gallery/Gallety.js';
 import ScrollToTop from './Components/ScrollToTop/ScrollToTop.js';
+import TechnicalCard from './Page/TechnicalCard/TechnicalCard.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -32,6 +33,7 @@ function Pages(props) {
                     <Route path="/" element={<Main/>} />
                     <Route path="/tile" element={<Tile/>} />
                     <Route path="/price" element={<Page/>} />
+                    <Route path="/technical_card" element={<TechnicalCard/>} />
                 </Routes>
             <Footer/>
         </>

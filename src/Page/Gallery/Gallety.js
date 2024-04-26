@@ -152,7 +152,7 @@ function GalleryCard({works, filtres}) {
                 {works.map((work, key) => (
                     <div className="card col l3 m4 s6" key={key}>
                         <div className="card-container">
-                            <img src={`${PUBLIC_URL}/images/gallery/short/${work.file_name}`} alt={work.file_name} loading="lazy"/>
+                            <img src={`${PUBLIC_URL}/images/gallery/${work.file_name}`} alt={work.file_name} loading="lazy"/>
                             {/* <div className="description">
                                 {filtres.map((filter, key) => (
                                         <span key={key}>

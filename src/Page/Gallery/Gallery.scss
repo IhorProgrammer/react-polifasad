@@ -125,6 +125,7 @@
 
 .Gallery_page__Gallery_Card{
     width: 97%;
+    max-width: 1300px;
     margin: 3% auto;
     .card {
         background-color: #ffffff00;
@@ -145,7 +146,7 @@
     }
     .card img {
         height: 100%;
-        min-width: 100%;
+        width: 100%;
         display: block;
     }
     .card .description {

@@ -9,7 +9,7 @@ export default function Price() {
         const searchParams = new URLSearchParams(location.search);
         const timer = setTimeout(() => { 
             const density = searchParams.get('density')
-            const api = GetPriceAPI(density?density:35);
+            const api = GetPriceAPI(density?density:25);
             setPriceInfo(api) 
         }, 1)
         return () => {
@@ -55,7 +55,7 @@ export default function Price() {
 function GetPriceAPI(density) {
     switch (density + "") {
         case "35": return {measurement: "см", prices: [ {3:240}, {5:240}, {10:240} ], currency: "UAN", density: density}
-        case "25": return {measurement: "см", prices: [ {3:240}, {5:240}, {10:240} ], currency: "UAN", density: density}
+        case "25": return {measurement: "см", prices: [ {3:240}, {5:250}, {10:300} ], currency: "UAN", density: density}
         case "50": return {measurement: "см", prices: [ {3:240}, {5:240}, {10:240} ], currency: "UAN", density: density}
     }     
 }
