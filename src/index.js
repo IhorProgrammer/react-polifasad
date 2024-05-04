@@ -14,6 +14,7 @@ import ScrollToTop from './Components/ScrollToTop/ScrollToTop.js';
 import TechnicalCard from './Page/TechnicalCard/TechnicalCard.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
     <React.StrictMode>
             <BrowserRouter>    
@@ -31,6 +32,7 @@ function Pages(props) {
                 <Routes>
                     <Route path="/gallery/*" element={<Galley/>} />
                     <Route path="/" element={<Main/>} />
+                    <Route path="/index.html" element={<Main/>} />
                     <Route path="/tile" element={<Tile/>} />
                     <Route path="/price" element={<Page/>} />
                     <Route path="/technical_card" element={<TechnicalCard/>} />

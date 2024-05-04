@@ -67,10 +67,12 @@
     height: 50px;
     font-size: 18px;
     text-wrap: wrap;
-
 }
 
 
+.type p{
+    text-transform: uppercase;
+}
 @media screen and (max-width: 992px) {    
     .content:hover {
         background-color: var(--first-color);

@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "./Tile.scss"
 
 import { useEffect, useState, useRef } from "react";
+import GetTilesAPI from "../../API/GetTilesAPI";
 
 export default function Tile() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -18,36 +19,21 @@ export default function Tile() {
     let sliderRef1 = useRef(null);
     let sliderRef2 = useRef(null);
 
+    const [sliderNum, setSliderNum] = useState(0); 
+    const PUBLIC_URL = process.env.PUBLIC_URL;
+    const [tiles, setTiles] = useState([]);
+
     useEffect(() => {
         window.addEventListener('resize', handleResize);
         setNav1(sliderRef1);
         setNav2(sliderRef2);
+        
+        GetTilesAPI().then((message) => { setTiles(message.sort((a, b) => a.number - b.number)); });
         return () => {
             window.removeEventListener('resize', handleResize);
         };
     }, []);
 
-    const [sliderNum, setSliderNum] = useState(0); 
-    const PUBLIC_URL = process.env.PUBLIC_URL;
-    const tiles = [
-        "images/tile/1.png",
-        "images/tile/2.png",
-        "images/tile/3.png",
-        "images/tile/4.png",
-        "images/tile/5.png",
-        "images/tile/6.png",
-        "images/tile/7.png",
-        "images/tile/8.png",
-        "images/tile/9.png",
-        "images/tile/10.png",
-        "images/tile/11.png",
-        "images/tile/12.png",
-        "images/tile/13.png",
-        "images/tile/14.png",
-        "images/tile/15.png",
-        "images/tile/16.png",
-        "images/tile/18.png",
-    ]
     const topSliderSettings = {
         lazyLoad: true,
         infinite: true,
@@ -127,13 +113,13 @@ function SliderDesktop({sliderNum, topSliderSettings, bottomSliderSettings, tile
                 <div className="slider-container col s12 l5">
                     <div className="slider-number">{sliderNum + 1}</div>
                     <Slider {...topSliderSettings} className="slider-for">
-                        {tiles.map((src, key) => <img src={`${PUBLIC_URL}/${src}`} key={key}/>)}
+                        {tiles.map((tile) => <img src={`${PUBLIC_URL}/images/tile/${tile.image_name}`} key={tile.number} data-num={tile.number}/>)}
                     </Slider>
                 </div>
                 {/* <OkmColorPicker selectColor={SelectColorHeadler} key={OkmColorPickerUpdate}/> */}
             </div>
             <Slider {...bottomSliderSettings} className="slider-bottom">
-                {tiles.map((src, key) => <div className="slider-bottom-container" key={key}><img className="slider-bottom-slider" src={`${PUBLIC_URL}/${src}`} /></div>)}
+                {tiles.map((tile) => <div className="slider-bottom-container" key={tile.number}><img className="slider-bottom-slider" src={`${PUBLIC_URL}/images/tile/${tile.image_name}`} /></div>)}
             </Slider>
         </>
     );
