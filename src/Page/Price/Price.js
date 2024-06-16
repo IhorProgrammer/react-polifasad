@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import { useLocation} from 'react-router-dom';
 import "./Price.scss"
-import GetPriceAPI from "../../API/GetPricesAPI";
+import PriceAPI from "../../API/PiceAPI";
+
 export default function Price() {
     const location = useLocation();
     const [priceInfo, setPriceInfo] = useState(null)
     useEffect(() => {
-        GetPriceAPI(location.search).then((message) => { setPriceInfo(message); });
+        new PriceAPI().get(location.search).then((message) => { setPriceInfo(message); });
     }, [location.search]); 
-    console.log(priceInfo)
     return (
         <div className="Price-page">
             <div className="Price-page__title">

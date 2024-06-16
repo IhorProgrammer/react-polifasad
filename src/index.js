@@ -18,11 +18,17 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
             <BrowserRouter>    
-                <Pages/>
+                <Test/>
             </BrowserRouter>
     </React.StrictMode>);
 
 reportWebVitals();
+
+
+function Test() {
+    return (<Pages></Pages>)
+}
+
 
 function Pages(props) {
     return (

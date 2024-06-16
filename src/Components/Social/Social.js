@@ -12,8 +12,8 @@ export default function Social({className}) {
     return (
         <div className={`${styles.social} ${styles[className]}`}>
             {
-                social.map( (soc) => 
-                    <a aria-label={soc.social_name} href={soc.ref}><img src={`${PUBLIC_URL}/images/icons/${soc.image_name}`} alt={soc.social_name}/></a>
+                social.map( (soc, key) => 
+                    <a key={key} aria-label={soc.social_name} href={soc.ref}><img src={`${PUBLIC_URL}/images/icons/${soc.image_name}`} alt={soc.social_name}/></a>
                 )
             }
         </div>
