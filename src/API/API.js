@@ -1,4 +1,3 @@
-import config from "./config.json"
 
 export default class API { 
     
@@ -7,7 +6,7 @@ export default class API {
             return this.instance;
         }
         this.instance = this;
-        this._url = config.server + url;
+        this._url = "http://demo.loc" + url;
     }
     
     get (search) {

@@ -1,16 +1,16 @@
 import API from "./API";
 
 
-export default class PriceAPI extends API {
+export default class GalleryAPI extends API {
 
     constructor() {
-        super("/prices");
+        super("/gallery");
     }
 
     get(search) {
         let url = this._url;
-        const density = new URLSearchParams(search).get('density');
-        if( density ) url +='?density=' + density; 
+        const type = new URLSearchParams(search).get('type');
+        if( type ) url +='?type=' + type; 
 
         return fetch(url, {
             method: 'GET',

@@ -3,14 +3,17 @@ import "slick-carousel/slick/slick.css";
 import { useState, useEffect } from "react";
 import "./MainSlider.scss";
 import Tint from "../Tint/Tint";
-import GetBackgroundImagesAPI from "../../API/GetBackgroundImagesAPI";
+import BackgroundImagesAPI from "../../API/BackgroundImagesAPI";
+
 
 export default function MainSlider(props) {
     const PUBLIC_URL = process.env.PUBLIC_URL;
     const [slideIndex, setSlideIndex] = useState(0);
     const [bgnImageList, setBgnImageList] = useState([])
     useEffect(() => {
-        GetBackgroundImagesAPI().then((message) => { setBgnImageList(message); });
+        new BackgroundImagesAPI().get().then((message) => { 
+            setBgnImageList(message); 
+        });
     }, []); 
 
     const bgnImageListItems = bgnImageList.map( (bgnImL, key) => <img alt="backgraund" key={key} src={`${PUBLIC_URL}/images/bgn_slider_images/${bgnImL.image_name}`} className={slideIndex === key?"play": ""}/>);

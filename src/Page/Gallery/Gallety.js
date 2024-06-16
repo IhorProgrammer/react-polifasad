@@ -3,13 +3,16 @@ import "./Gallery.scss"
 import GetGalleryAPI from "../../API/GetGalleryAPI";
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from 'react-router-dom';
+import GalleryAPI from "../../API/GalleryAPI";
 
 export default function Gallery() {
     const location = useLocation();
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        GetGalleryAPI(location.search).then((message) => { setData(message); });
+        
+        new GalleryAPI().get(location.search).then( (data) => { setData(data); } )
+
     }, [location.search]); 
 
     return (
@@ -34,10 +37,10 @@ function GalleryCard({works}) {
     return (
         <div className="Gallery_page__Gallery_Card">
             <div className="cards row">
-                {works.map((work, key) => (
-                    <div className="card col l3 m4 s6" key={work.id} data-building_type={work.building_type}>
+                {works.map((gal, key) => (
+                    <div className="card col l3 m4 s6" key={key} data-building_type={gal.id_building_type}>
                         <div className="card-container">
-                            <img src={`${PUBLIC_URL}/images/gallery/${work.image}`} alt={work.image} loading="lazy"/>
+                            <img data-img-id={gal.id_building_type} src={`${PUBLIC_URL}/images/gallery/${gal.image_name}`} alt={gal.image_name} loading="lazy"/>
                         </div>
                     </div>
                 ))}

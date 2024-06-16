@@ -1,11 +1,12 @@
-import GetSocialAPI from '../../API/GetSocialAPI';
+import SocialAPI from '../../API/SocialAPI';
 import styles from './Social.module.css';
 import { useState, useEffect } from 'react';
+
 export default function Social({className}) {
 
     const [social, setSocial] = useState([])
     useEffect(() => {
-        GetSocialAPI().then((message) => { setSocial(message); });
+        new SocialAPI().get().then((data) => { setSocial(data); });
     }, []); 
 
     const PUBLIC_URL = process.env.PUBLIC_URL;

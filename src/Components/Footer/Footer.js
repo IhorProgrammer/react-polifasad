@@ -2,13 +2,14 @@ import Social from "../Social/Social";
 import style from "./Footer.module.css"
 import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
-import GetPhonesAPI from "../../API/GetPhonesAPI";
+import PhoneAPI from "../../API/PhoneAPI";
 
 export default function Footer() {
     const PUBLIC_URL = process.env.PUBLIC_URL;
     const [phones, setPhones] = useState([]);
     useEffect(() => {
-        GetPhonesAPI().then((message) => { setPhones(message);});
+        new PhoneAPI().get().then((data) => { setPhones(data); });
+
     }, []); 
     
 
@@ -42,7 +43,7 @@ export default function Footer() {
                     <div className={`${style["contacts"]} col s12 m6 l5`}>
                         <p>Номера телефонів</p>
                         <ul className={style["phone-list"]}>
-                            {phones.map((phone, key) => <li key={key}><a href={"tel:+38" + phone.number}>{phone.number}</a></li>)}
+                            {phones.map((phone, key) => <li key={key}><a href={"tel:+" + phone.phone}>+{phone.phone}</a></li>)}
                         </ul>
                         <hr/>
                         <p>Соц. мережі</p>
@@ -50,7 +51,7 @@ export default function Footer() {
                             <Social/>
                         </div>
                     </div>
-                </div>
+                </div> 
             </div>
         </footer> 
     );

@@ -1,4 +1,4 @@
-import PhoneListMenu from "../PhoneListMenu/PhoneListMenu";
+import PhoneListMenu from "../PhoneListMenu/AdminPhoneListMenu";
 import styles from "./MainContent.module.css"
 export default function MainContent() {
     const PUBLIC_URL = process.env.PUBLIC_URL;
@@ -18,3 +18,4 @@ export default function MainContent() {
         </div>    
     );
 }
+

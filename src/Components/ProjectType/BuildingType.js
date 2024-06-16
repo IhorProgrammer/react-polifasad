@@ -1,13 +1,15 @@
 import { Link } from "react-router-dom";
 import style from "./BuildingType.module.css"
-import GetBuildingTypeAPI from "../../API/GetBuildingType";
 import { useState, useEffect } from "react";
+import BuildingTypeAPI from "../../API/BuildingTypeAPI";
 
 export default function BuildingType() {
     const PUBLIC_URL = process.env.PUBLIC_URL;
     const [buildingsType, setBuildingsType] = useState([])
     useEffect(() => {
-        GetBuildingTypeAPI().then((message) => { setBuildingsType(message); });
+        new BuildingTypeAPI().get().then((data) => { 
+            setBuildingsType(data); 
+        });
     }, []); 
 
     return (
@@ -24,7 +26,7 @@ export default function BuildingType() {
                                     <div className={style["type"]}>
                                         <p>{buildingType.building_name}</p>
                                     </div>
-                                    <Link to={`gallery?building_type=${buildingsType.id}`} className="anm-pulse">ПОДИВИТИСЬ</Link>
+                                    <Link to={`gallery?type=${buildingType.id}`} className="anm-pulse">ПОДИВИТИСЬ</Link>
                                 </div>
                             </div>
                         ))

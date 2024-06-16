@@ -6,8 +6,14 @@ import PriceAPI from "../../API/PiceAPI";
 export default function Price() {
     const location = useLocation();
     const [priceInfo, setPriceInfo] = useState(null)
+    const [density, setDensity] = useState(35)
+
     useEffect(() => {
-        new PriceAPI().get(location.search).then((message) => { setPriceInfo(message); });
+        new PriceAPI().get(location.search).then((data) => { 
+            setPriceInfo(data); 
+        });
+        const urlParams = new URLSearchParams(location.search);
+        setDensity(urlParams.get("density") || 35);   
     }, [location.search]); 
     return (
         <div className="Price-page">
@@ -16,12 +22,11 @@ export default function Price() {
                 <p>Ціни на кожний об’єкт обговорюється окремо</p>
             </div>
             <div className="Price-page__info">
+                <p className="Price-page__info-title">Ціна поліфасадної плитки, ЛЮБОЇ фактури на пенопласті {density} щільності:</p>
                 {
-                    
                     priceInfo == null
                     ||
                     <>
-                        <p className="Price-page__info-title">Ціна поліфасадної плитки, ЛЮБОЇ фактури на пенопласті {priceInfo[0].density} щільності:</p>
                         <ul className="Price-page__list browser-default">
                             {
                                 priceInfo.map( (item, key) => 

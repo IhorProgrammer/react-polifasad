@@ -32,3 +32,27 @@
         display: flex;
     }    
 }
+
+.phone-list-menu.admin {
+    .phone-btn-trigger, .dropdown-menu-content{
+        width: 200px; 
+    }
+
+    .phone-add-container {
+        display: flex;
+        align-items: center;
+    }
+    .phone-add-input {
+        color: white;
+        line-height: 10px;
+    }
+    .phone-add-button {
+        color: white;
+        padding: 6px;
+    }
+    .dropdown-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}

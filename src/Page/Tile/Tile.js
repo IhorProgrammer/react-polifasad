@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "./Tile.scss"
 
 import { useEffect, useState, useRef } from "react";
-import GetTilesAPI from "../../API/GetTilesAPI";
+import TileAPI from "../../API/TileAPI";
 
 export default function Tile() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -27,8 +27,7 @@ export default function Tile() {
         window.addEventListener('resize', handleResize);
         setNav1(sliderRef1);
         setNav2(sliderRef2);
-        
-        GetTilesAPI().then((message) => { setTiles(message.sort((a, b) => a.number - b.number)); });
+        new TileAPI().get().then((data) => { setTiles(data.sort((a, b) => a.number - b.number)); });
         return () => {
             window.removeEventListener('resize', handleResize);
         };

@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 import "./PhoneListMenu.scss"
-import GetPhonesAPI from '../../API/GetPhonesAPI';
+import PhoneAPI from '../../API/PhoneAPI';
 export default function PhoneListMenu() {
     const [phones, setPhones] = useState([]);
     useEffect(() => {
-        GetPhonesAPI().then((message) => { setPhones(message); });
+        new PhoneAPI().get().then((data) => { 
+            data = data.sort((a,b) => a.phone_id - b.phone_id );
+            setPhones(data); 
+        });
     }, []); 
     
     return (
@@ -17,11 +20,17 @@ export default function PhoneListMenu() {
 
             <Dropdown.Menu className="dropdown-menu-content">
                 {
-                    phones.map((phone, key) => <Dropdown.Item key={key} href={"tel:+38" + phone.number}>+38{phone.number}</Dropdown.Item>)
+                    phones.map((phone, key) => <Dropdown.Item key={key} href={"tel:+" + phone.phone}>+{phone.phone}</Dropdown.Item>)
                 }
+                <Dropdown.Item>
+                    <input type='tel'></input>
+                    
+                </Dropdown.Item> 
+
             </Dropdown.Menu>
         </Dropdown>
         </>
     );
 }
+
 

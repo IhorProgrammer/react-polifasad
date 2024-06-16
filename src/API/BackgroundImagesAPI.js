@@ -1,18 +1,14 @@
 import API from "./API";
 
 
-export default class PriceAPI extends API {
+export default class BackgroundImagesAPI extends API {
 
     constructor() {
-        super("/prices");
+        super("/background_images");
     }
 
-    get(search) {
-        let url = this._url;
-        const density = new URLSearchParams(search).get('density');
-        if( density ) url +='?density=' + density; 
-
-        return fetch(url, {
+    get() {
+        return fetch(this._url, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
