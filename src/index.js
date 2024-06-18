@@ -12,6 +12,7 @@ import { BrowserRouter ,Route, Routes } from "react-router-dom";
 import Galley from './Page/Gallery/Gallety.js';
 import ScrollToTop from './Components/ScrollToTop/ScrollToTop.js';
 import TechnicalCard from './Page/TechnicalCard/TechnicalCard.js';
+import AuthModal from './Components/AuthModal/AuthModal.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -42,6 +43,11 @@ function Pages(props) {
                     <Route path="/tile" element={<Tile/>} />
                     <Route path="/price" element={<Page/>} />
                     <Route path="/technical_card" element={<TechnicalCard/>} />
+                    <Route path="/admin" element={
+                        <>
+                            <AuthModal/>
+                        </>
+                    } />
                 </Routes>
             <Footer/>
         </>

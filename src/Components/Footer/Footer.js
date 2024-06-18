@@ -1,8 +1,9 @@
 import Social from "../Social/Social";
 import style from "./Footer.module.css"
 import { Link } from "react-router-dom";
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import PhoneAPI from "../../API/PhoneAPI";
+import process from 'process';
 
 export default function Footer() {
     const PUBLIC_URL = process.env.PUBLIC_URL;

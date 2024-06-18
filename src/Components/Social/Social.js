@@ -1,6 +1,7 @@
 import SocialAPI from '../../API/SocialAPI';
 import styles from './Social.module.css';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import process from 'process';
 
 export default function Social({className}) {
 

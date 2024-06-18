@@ -1,0 +1,22 @@
+.auth-modal-component {
+    margin: 100px auto;
+    color: white;
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 50px;
+    }
+    input {
+        color: white;
+    }
+
+    input:focus {
+        border-bottom: 1px solid white !important;
+    }
+    input:hover {
+        border-bottom: 3px solid white !important;
+    }
+
+    input:focus:not([readonly])+label {
+        color: white !important;
+    }
+}

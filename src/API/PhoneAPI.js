@@ -31,6 +31,9 @@ export default class PhoneAPI extends API {
         data.append( "token", "1245678" );
         return fetch(this._url, {
             method: 'POST',
+            headers: {
+                'Authorization': 'Bearer ' + super.getToken() 
+            },
             body: data
         }).then(r => r.json())
         .then(r => {
@@ -49,7 +52,7 @@ export default class PhoneAPI extends API {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer YOUR_TOKEN_HERE' // Додайте свій токен
+                'Authorization': 'Bearer ' + super.getToken() 
             }
         }).then(r => r.json())
         .then(r => {
@@ -72,7 +75,7 @@ export default class PhoneAPI extends API {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer YOUR_TOKEN_HERE' // Додайте свій токен
+                'Authorization': 'Bearer ' + super.getToken() 
             },
             body: JSON.stringify(data)
         }).then(r => r.json())

@@ -1,5 +1,7 @@
 import PhoneListMenu from "../PhoneListMenu/AdminPhoneListMenu";
 import styles from "./MainContent.module.css"
+import process from 'process';
+
 export default function MainContent() {
     const PUBLIC_URL = process.env.PUBLIC_URL;
     return (

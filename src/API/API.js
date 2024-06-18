@@ -24,4 +24,8 @@ export default class API {
     delete (search, data) {
         throw new Error("non-initialization method")
     }
+
+    getToken() {
+        return localStorage.getItem("auth-token");
+    }
 }

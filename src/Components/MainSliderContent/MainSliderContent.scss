@@ -1,0 +1,66 @@
+.main-slider-content-component {
+    height: 700px;
+    position: relative;
+}
+
+@media screen and (max-width: 600px) {
+    .main-slider-content-component {
+        height: 600px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .main-slider-content-component {
+        height: 400px;
+    }
+}
+
+
+.main-slider-content-component.admin {
+    height: 700px;
+
+    .control-panel {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        z-index: 2;
+    }
+
+    .center-panel {
+        width: 50%;
+        margin: 10px auto;
+        background-color: #333;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        border-radius: 10px;
+    }
+    .control-btn {
+        background-color: #007bff;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        margin: 0 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .control-btn:hover {
+        background-color: #0056b3;
+    }
+
+    .control-btn:active {
+        background-color: #003f7f;
+    }
+
+    .control-btn:focus {
+        outline: none;
+    }
+
+    .non-animation .play {
+        animation-play-state: paused !important;
+
+    }
+}

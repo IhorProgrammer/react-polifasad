@@ -18,6 +18,7 @@ export default function MainSlider(props) {
 
     const bgnImageListItems = bgnImageList.map( (bgnImL, key) => <img alt="backgraund" key={key} src={`${PUBLIC_URL}/images/bgn_slider_images/${bgnImL.image_name}`} className={slideIndex === key?"play": ""}/>);
 
+    
     const settings = {
         infinite: true,
         speed: 1000,
@@ -28,14 +29,15 @@ export default function MainSlider(props) {
         arrows: false,
         beforeChange: function(oldIndex, newIndex) {
             setSlideIndex(newIndex)
-        }
-
+        },
+        ...props.settings
     };
+
 
     return (
         <div className={`main-slider ${props.className || ""}` } >
-            <Slider {...settings}>
-                {bgnImageListItems}
+            <Slider {...settings} ref={props.refSlider}>
+                {bgnImageListItems} 
             </Slider>
             <Tint/>
         </div>

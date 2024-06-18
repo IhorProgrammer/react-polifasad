@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import Social from "../Social/Social";
 import React from 'react';
 import './AppleMenu.scss';
+import process from 'process';
+
 
 export default function AppleMenu(props) {
     const [isOpen, setisOpen] = useState(false)
