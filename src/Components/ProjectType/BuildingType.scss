@@ -1,0 +1,113 @@
+/* ------------------- Project type ------------------- */
+.project-type-component{
+    background-color: var(--second-color);
+    padding-top: 1px;
+
+    
+    .cards{
+        margin: 0;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+
+        .card{
+            position: relative;
+            width: 48%;
+            margin: 10px 0;
+            display: flex;
+            flex-direction: column;
+            height: 400px;
+            max-width: 400px;
+
+            
+            .img-conteiner img{
+                height: 100%;
+                width: 100%;
+            }
+            .img-conteiner{
+                height: 60%;
+                overflow: hidden;
+            }
+            
+            
+            .content:hover {
+                color: white;
+                background-color: var(--red-color);
+            }
+            .content:hover a{
+                color: black;
+                background-color: white;
+            }
+            .content a{
+                display: block;
+                width: 90%;
+                margin: 10px auto;
+                padding: 10px 20px;
+                font-weight: bold;
+                background-color: var(--red-color);
+                color: white;
+                cursor: pointer;
+            }
+
+            .content{
+                word-wrap: break-word;
+                background-color: var(--first-color);
+                color: white;
+                text-decoration: none;
+                padding: 20px 10px;
+                position: static;
+                width: 100%;
+                bottom: 0px;
+                left: 0px;
+                height: 40%;
+                cursor: pointer;
+
+                        
+                .type{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-bottom: 10px;
+                    height: 50px;
+                    font-size: 18px;
+                    text-wrap: wrap;
+                }
+
+
+                .type p{
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 992px) {    
+    .project-type-component {
+        .content:hover {
+            background-color: var(--first-color);
+        }
+        .content:hover a{
+            color: white;
+            background-color: var(--red-color);
+        }
+    }
+}
+@media screen and (max-width: 800px) {
+    .project-type-component .cards .card {
+        height: 400px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .project-type-component .cards .card {
+        width: 100%;
+        height: 450px;
+        margin: 20px 0;
+    }
+}
+@media screen and (max-width: 360px) {
+    .project-type-component .cards .card {
+        height: 400px;
+    }
+}

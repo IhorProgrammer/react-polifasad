@@ -1,5 +1,5 @@
 import MainSliderContent from "../../Components/MainSliderContent/MainSliderContentAdmin";
-import BuildingType from "../../Components/ProjectType/BuildingType";
+import BuildingType from "../../Components/ProjectType/BuildingTypeAdmin";
 import ServicesCards from "../../Components/ServicesCards/ServicesCards";
 import BgnParallax from "../../Components/BgnParalax/BgnParallax";
 import "./Main.css";

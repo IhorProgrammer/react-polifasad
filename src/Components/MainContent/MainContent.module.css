@@ -1,20 +1,25 @@
 /* -------------------Main Content------------------- */
+
+.main-content{
+    z-index: 3;
+    height: auto;
+    position: absolute;
+    left: 10%;
+    top: 200px;
+    width: auto;
+}
+
 .main-content-container{
     height: inherit;
     display: flex;
     align-items: center;
-    width: 90%;
-    margin: 0 auto;
+    width: auto;
     color: white;
 }
 
-.main-content{
-    z-index: 1;
-    height: inherit;
-    position: relative;
-}
+
 .main-content-left{
-    width: 50%;
+    width: 288px;
     z-index: 0;
 }
 .main-content h1{
@@ -29,9 +34,6 @@
 }
 
 @media screen and (max-width: 992px) {
-    .main-content{
-        height: 800px;
-    }
     .main-content-right {
         display: none;
     }
@@ -42,15 +44,15 @@
 }
 
 @media screen and (max-width: 600px) {
+    .main-content h1 {
+        font-size: 40px;
+    }
     .main-content{
-        height: 600px;
+        left: 5%;
     }
 }
 
 @media screen and (max-width: 360px) {
-    .main-content{
-        height: 350px;
-    }
     .main-content h1 {
         margin-top: 45px;
         font-size: 40px;
